@@ -1,0 +1,245 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banswara Tourism</title>
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Add font-face for British Script MT */
+    @font-face {
+      font-family: 'British Script MT';
+      src: url('path-to-font/BritishScriptMT.woff') format('woff'); /* Adjust path to your font file */
+    }
+
+    #hamburger-menu {
+      position: fixed;
+      top: 10px;
+      left: 20px;
+      z-index: 10001;
+      display: flex;
+      align-items: center;
+    }
+
+    .menu-toggle {
+      width: 30px;
+      height: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      background: white;
+      padding: 5px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      border-radius: 4px;
+    }
+
+    .menu-toggle span {
+      display: block;
+      height: 4px;
+      background-color: #333;
+      border-radius: 2px;
+    }
+
+    /* Let's Go Text Styling */
+    #lets-go {
+      font-family: 'British Script MT', cursive;
+      font-size: 20px;
+      color: #000000; /* Black color for text */
+      margin-left: 15px;
+      z-index: 10003;
+    }
+
+    #menu-dropdown {
+      position: fixed;
+      top: 0;
+      left: -270px;
+      width: 250px;
+      height: 100%;
+      background: #D2691E;
+      border-right: 1px solid #ddd;
+      box-shadow: 2px 0 6px rgba(0,0,0,0.2);
+      padding: 60px 10px 10px 10px;
+      transition: left 0.3s ease;
+      z-index: 10000;
+      overflow-y: auto;
+    }
+
+    #menu-dropdown.open {
+      left: 0;
+    }
+
+    #menu-dropdown h3 {
+      color: white;
+      margin: 20px 10px 10px;
+      font-size: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding-bottom: 5px;
+    }
+
+    #menu-dropdown hr {
+      border: 0;
+      height: 1px;
+      background: rgba(255,255,255,0.2);
+      margin: 10px 0;
+    }
+
+    #menu-dropdown a {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      color: #000000;
+      text-decoration: none;
+    }
+
+    #menu-dropdown a:hover {
+      background-color: #FFFFF0;
+    }
+
+    #menu-dropdown i {
+      margin-right: 8px;
+      width: 20px;
+      text-align: center;
+    }
+
+    #menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0);
+      z-index: 9999;
+      display: none;
+    }
+
+    #menu-overlay.active {
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      #hamburger-menu {
+        top: 15px;
+        left: 15px;
+      }
+
+      .menu-toggle {
+        width: 40px;
+        height: 32px;
+        padding: 7px;
+      }
+
+      .menu-toggle span {
+        height: 5px;
+      }
+
+      #menu-dropdown {
+        width: 220px;
+        padding-top: 70px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HAMBURGER MENU -->
+<div id="hamburger-menu">
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <!-- "Let's Go" Text -->
+  <span id="lets-go">Let's Go</span>
+</div>
+
+<!-- SLIDE-IN MENU WITH CUSTOM ICONS -->
+<div id="menu-dropdown">
+  <h3>Explore</h3>
+  <a href="https://viranchdave.github.io/LeafletBanswaraSAFAR/">
+    <img src="https://tinypic.host/images/2025/05/03/icons8-home-96.png" alt="Home" style="width: 35px; margin-right: 8px;"> Home
+  </a>
+  <a href="https://jankalyanfile.rajasthan.gov.in/Content/UploadFolder/DepartmentMaster/100/2023/Sep/30409/1001dc51cab-2e8d-456e-83dd-14be35df5108.pdf">
+    <img src="https://tinypic.host/images/2025/05/02/boundary_3_cropped.png" alt="About Banswara" style="width: 35px; margin-right: 8px;"> About Banswara
+  </a>
+  <a href="https://geolocatebanswaratourism.wordpress.com/#nature" target="mainframe">
+    <img src="https://tinypic.host/images/2025/05/24/ChatGPT-Image-May-21-2025-01_30_21-PM-min.png" alt="Nature Attractions" style="width: 35px; margin-right: 8px;"> SAFAR Overview
+  </a>
+  <a href="privacy_policy_embedded.html" target="mainframe">
+    <img src="https://tinypic.host/images/2025/05/24/icons8-lock-50.png" alt="Privacy Policy" style="width: 35px; margin-right: 8px;"> Privacy Policy
+  </a>
+
+  <hr>
+
+  <!-- Add Google Translate Button -->
+  <h3>Translate</h3>
+  <a href="#" onclick="translateToHindi()">
+    <img src="path/to/your/custom/translate-icon.svg" alt="Translate" style="width: 20px; margin-right: 8px;"> Translate to Hindi
+  </a>
+
+  <hr>
+
+  <h3>More Info</h3>
+  <a href="#about" target="mainframe">
+    <img src="path/to/your/custom/about-icon.svg" alt="About" style="width: 20px; margin-right: 8px;"> How to use?
+  </a>
+  <a href="C.html" target="mainframe">
+    <img src="path/to/your/custom/contact-icon.svg" alt="Contact" style="width: 20px; margin-right: 8px;"> Contributors and their Contact
+  </a>
+</div>
+
+
+<!-- MAIN CONTENT AREA -->
+<iframe src="https://viranchdave.github.io/LeafletBanswaraSAFAR/"></iframe>
+
+<!-- Google Translate Script -->
+<script type="text/javascript">
+  function translateToHindi() {
+    var googleTranslateElement = new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'hi',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+
+  // Load Google Translate script
+  (function() {
+    var script = document.createElement('script');
+    script.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    document.body.appendChild(script);
+  })();
+
+  function toggleMenu() {
+    const menu = document.getElementById("menu-dropdown");
+    const overlay = document.getElementById("menu-overlay");
+    const isOpen = menu.classList.contains("open");
+
+    if (isOpen) {
+      closeMenu();
+    } else {
+      menu.classList.add("open");
+      overlay.classList.add("active");
+    }
+  }
+
+  function closeMenu() {
+    document.getElementById("menu-dropdown").classList.remove("open");
+    document.getElementById("menu-overlay").classList.remove("active");
+  }
+</script>
+
+</body>
+</html>

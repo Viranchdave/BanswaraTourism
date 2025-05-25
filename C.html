@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SAFAR Contributors</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f7f7f7;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    .toggle-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .toggle-container button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background-color: #3498db;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .contributors {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 10px;
+      scroll-behavior: smooth;
+      flex-direction: row;
+    }
+
+    .contributors.vertical {
+      flex-direction: column !important;
+      overflow-x: hidden;
+      overflow-y: auto;
+      max-height: 80vh;
+    }
+
+    .card {
+      flex: 0 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 280px;
+      text-align: center;
+    }
+
+   .card img.photo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+
+    .card h3 {
+      margin: 10px 0 5px;
+      color: #333;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      margin: 0 8px;
+      display: inline-block;
+    }
+
+    .social-icons img {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>SAFAR App & Webmap Contributors</h1>
+
+  <div class="toggle-container">
+    <button onclick="toggleDirection()">Toggle View</button>
+  </div>
+
+  <div class="contributors" id="contributors">
+
+    <!-- Contributor 1 -->
+    <div class="card">
+      <img src="https://ik.imagekit.io/kfyvf110y/IMG_20241018_134846~2.jpg?updatedAt=1748100597461" alt="Contributor 1" class="photo"/>
+      <h3>Viranch Dave</h3>
+      <p>Lead Developer & Mapper</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/viranch" target="_blank">
+          <img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" alt="Instagram"/>
+        </a>
+        <a href="https://www.linkedin.com/in/viranch" target="_blank">
+          <img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png" alt="LinkedIn"/>
+        </a>
+        <a href="mailto:viranch@example.com">
+          <img src="https://img.icons8.com/ios-filled/50/000000/gmail.png" alt="Gmail"/>
+        </a>
+      </div>
+    </div>
+
+    <!-- Contributor 2 -->
+    <div class="card">
+     <img src="https://tinypic.host/images/2025/05/24/20250524_203412.jpg" alt="Contributor 2" class="photo"/>
+      <h3>Dr Kamlesh Sharma</h3>
+      <p>Research & Content</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/neha" target="_blank">
+          <img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" alt="Instagram"/>
+        </a>
+        <a href="https://www.linkedin.com/in/neha" target="_blank">
+          <img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png" alt="LinkedIn"/>
+        </a>
+        <a href="mailto:neha@example.com">
+          <img src="https://img.icons8.com/ios-filled/50/000000/gmail.png" alt="Gmail"/>
+        </a>
+      </div>
+    </div>
+
+    <!-- Contributor 3 -->
+    <div class="card">
+      <img src="path-to-image3.jpg" alt="Contributor 3" class="photo"/>
+      <h3>Tanvi Jaradi</h3>
+      <p>UX/UI Designer</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/amit" target="_blank">
+          <img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" alt="Instagram"/>
+        </a>
+        <a href="https://www.linkedin.com/in/amit" target="_blank">
+          <img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png" alt="LinkedIn"/>
+        </a>
+        <a href="mailto:amit@example.com">
+          <img src="https://img.icons8.com/ios-filled/50/000000/gmail.png" alt="Gmail"/>
+        </a>
+      </div>
+    </div>
+
+    <!-- Contributor 4 -->
+    <div class="card">
+      <img src="path-to-image4.jpg" alt="Contributor 4" class="photo"/>
+      <h3>Nitya Jaradi</h3>
+      <p>Field Survey & Data Entry</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/sneha" target="_blank">
+          <img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" alt="Instagram"/>
+        </a>
+        <a href="https://www.linkedin.com/in/sneha" target="_blank">
+          <img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png" alt="LinkedIn"/>
+        </a>
+        <a href="mailto:sneha@example.com">
+          <img src="https://img.icons8.com/ios-filled/50/000000/gmail.png" alt="Gmail"/>
+        </a>
+      </div>
+    </div>
+<!-- Contributor 5 -->
+    <div class="card">
+      <img src="path-to-image4.jpg" alt="Contributor 4" class="photo"/>
+      <h3>Mr Digish Nagar</h3>
+      <p>Field Survey & Data Entry</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/sneha" target="_blank">
+          <img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" alt="Instagram"/>
+        </a>
+        <a href="https://www.linkedin.com/in/sneha" target="_blank">
+          <img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png" alt="LinkedIn"/>
+        </a>
+        <a href="mailto:sneha@example.com">
+          <img src="https://img.icons8.com/ios-filled/50/000000/gmail.png" alt="Gmail"/>
+        </a>
+      </div>
+    </div>
+
+
+  </div>
+
+  <script>
+    function toggleDirection() {
+      const container = document.getElementById('contributors');
+      container.classList.toggle('vertical');
+    }
+  </script>
+
+</body>
+</html>
