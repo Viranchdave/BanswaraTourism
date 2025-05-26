@@ -19,10 +19,9 @@
       z-index: 1;
     }
 
-    /* Add font-face for British Script MT */
     @font-face {
       font-family: 'British Script MT';
-      src: url('path-to-font/BritishScriptMT.woff') format('woff'); /* Adjust path to your font file */
+      src: url('path-to-font/BritishScriptMT.woff') format('woff');
     }
 
     #hamburger-menu {
@@ -54,11 +53,10 @@
       border-radius: 2px;
     }
 
-    /* Let's Go Text Styling */
     #lets-go {
       font-family: 'British Script MT', cursive;
       font-size: 20px;
-      color: #000000; /* Black color for text */
+      color: #000000;
       margin-left: 15px;
       z-index: 10003;
     }
@@ -162,7 +160,6 @@
     <span></span>
     <span></span>
   </div>
-  <!-- "Let's Go" Text -->
   <span id="lets-go">Let's Go</span>
 </div>
 
@@ -184,11 +181,9 @@
 
   <hr>
 
-  <!-- Add Google Translate Button -->
+  <!-- Google Translate Section -->
   <h3>Translate</h3>
-  <a href="#" onclick="translateToHindi()">
-    <img src="path/to/your/custom/translate-icon.svg" alt="Translate" style="width: 20px; margin-right: 8px;"> Translate to Hindi
-  </a>
+  <div id="google_translate_element" style="padding-left: 10px;"></div>
 
   <hr>
 
@@ -201,21 +196,19 @@
   </a>
 </div>
 
-
 <!-- MAIN CONTENT AREA -->
 <iframe src="https://viranchdave.github.io/LeafletBanswaraSAFAR/"></iframe>
 
 <!-- Google Translate Script -->
 <script type="text/javascript">
-  function translateToHindi() {
-    var googleTranslateElement = new google.translate.TranslateElement({
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
       pageLanguage: 'en',
       includedLanguages: 'hi',
       layout: google.translate.TranslateElement.InlineLayout.SIMPLE
     }, 'google_translate_element');
   }
 
-  // Load Google Translate script
   (function() {
     var script = document.createElement('script');
     script.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
