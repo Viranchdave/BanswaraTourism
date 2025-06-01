@@ -166,96 +166,46 @@
 <!-- SLIDE-IN MENU WITH CUSTOM ICONS -->
 <div id="menu-dropdown">
   <h3>Explore</h3>
-  <a 
 
-href="https://viranchdave.github.io/LeafletBanswar
-
-aSAFAR/">
-    <img 
-
-src="https://tinypic.host/images/2025/05/03/icons8
-
--home-96.png" alt="Home" style="width: 35px; 
-
-margin-right: 8px;"> Home
+  <a href="index(2).html" target="mainframe">
+    <img src="https://tinypic.host/images/2025/05/03/icons8-home-96.png" alt="Home" style="width: 35px; margin-right: 8px;"> Home
   </a>
-  <a 
 
-href="https://viranchdave.github.io/BanswaraTouris
-
-m/About%20Banswara.html">
-    <img 
-
-src="https://tinypic.host/images/2025/05/02/bounda
-
-ry_3_cropped.png" alt="About Banswara" 
-
-style="width: 35px; margin-right: 8px;"> About 
-
-Banswara
+ <a href="https://viranchdave.github.io/BanswaraTourism/About%20Banswara.html">
+    <img src="https://tinypic.host/images/2025/05/02/boundary_3_cropped.png" alt="About Banswara" style="width: 35px; margin-right: 8px;"> About Banswara
   </a>
-  <a 
+  </div>
+  <div id="about-submenu" style="display: none; padding-left: 45px; font-size: 14px;">
+    <a href="https://example.com/english.pdf" target="_blank" style="color: white; text-decoration: underline; display: block; margin-top: 5px;"> English PDF</a>
+    <a href="https://example.com/hindi.pdf" target="_blank" style="color: white; text-decoration: underline; display: block; margin-top: 5px;"> Hindi PDF</a>
+  </div>
 
-href="https://geolocatebanswaratourism.wordpress.c
-
-om/#nature" target="mainframe">
-    <img 
-
-src="https://tinypic.host/images/2025/05/24/ChatGP
-
-T-Image-May-21-2025-01_30_21-PM-min.png" 
-
-alt="Nature Attractions" style="width: 35px; 
-
-margin-right: 8px;"> SAFAR Overview
+  <a href="https://geolocatebanswaratourism.wordpress.com/#nature" target="mainframe">
+    <img src="https://tinypic.host/images/2025/05/24/ChatGPT-Image-May-21-2025-01_30_21-PM-min.png" alt="Nature Attractions" style="width: 35px; margin-right: 8px;"> SAFAR Overview
   </a>
-  <a href="privacy_policy_embedded.html" 
-
-target="mainframe">
-    <img 
-
-src="https://tinypic.host/images/2025/05/24/icons8
-
--lock-50.png" alt="Privacy Policy" style="width: 
-
-35px; margin-right: 8px;"> Privacy Policy
+  <a href="privacy_policy_embedded.html" target="mainframe">
+    <img src="https://tinypic.host/images/2025/05/24/icons8-lock-50.png" alt="Privacy Policy" style="width: 35px; margin-right: 8px;"> Privacy Policy
   </a>
 
   <hr>
 
   <!-- Google Translate Section -->
   <h3>Translate</h3>
-  <div id="google_translate_element" 
-
-style="padding-left: 10px;"></div>
+  <div id="google_translate_element" style="padding-left: 10px;"></div>
 
   <hr>
 
   <h3>More Info</h3>
   <a href="#about" target="mainframe">
-    <img src="path/to/your/custom/about-icon.svg" 
-
-alt="About" style="width: 20px; margin-right: 
-
-8px;"> How to use?
+     How to use?
   </a>
   <a href="C.html" target="mainframe">
-    <img src="path/to/your/custom/contact-
-
-icon.svg" alt="Contact" style="width: 20px; 
-
-margin-right: 8px;"> Contributors and their 
-
-Contact
+    Contributors and their Contact
   </a>
 </div>
 
 <!-- MAIN CONTENT AREA -->
-<iframe 
-
-src="https://viranchdave.github.io/LeafletBanswara
-
-SAFAR/"></iframe>
+<iframe src="https://viranchdave.github.io/LeafletBanswaraSAFAR/"></iframe>
 
 <!-- Google Translate Script -->
 <script type="text/javascript">
@@ -263,34 +213,20 @@ SAFAR/"></iframe>
     new google.translate.TranslateElement({
       pageLanguage: 'en',
       includedLanguages: 'hi',
-      layout: 
-
-google.translate.TranslateElement.InlineLayout.SIM
-
-PLE
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
     }, 'google_translate_element');
   }
 
   (function() {
     var script = document.createElement('script');
-    script.src = 
-
-"https://translate.google.com/translate_a/element.
-
-js?cb=googleTranslateElementInit";
+    script.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
     document.body.appendChild(script);
   })();
 
   function toggleMenu() {
-    const menu = document.getElementById("menu-
-
-dropdown");
-    const overlay = document.getElementById
-
-("menu-overlay");
-    const isOpen = menu.classList.contains
-
-("open");
+    const menu = document.getElementById("menu-dropdown");
+    const overlay = document.getElementById("menu-overlay");
+    const isOpen = menu.classList.contains("open");
 
     if (isOpen) {
       closeMenu();
@@ -301,12 +237,25 @@ dropdown");
   }
 
   function closeMenu() {
-    document.getElementById("menu-
+    document.getElementById("menu-dropdown").classList.remove("open");
+    document.getElementById("menu-overlay").classList.remove("active");
 
-dropdown").classList.remove("open");
-    document.getElementById("menu-
+    // Close submenu and reset arrow
+    const submenu = document.getElementById("about-submenu");
+    const arrow = document.getElementById("about-arrow");
+    if (submenu && arrow) {
+      submenu.style.display = "none";
+      arrow.textContent = "?";
+    }
+  }
 
-overlay").classList.remove("active");
+  function toggleSubmenu(submenuId, arrowId) {
+    const submenu = document.getElementById(submenuId);
+    const arrow = document.getElementById(arrowId);
+    const isVisible = submenu.style.display === "block";
+
+    submenu.style.display = isVisible ? "none" : "block";
+    arrow.textContent = isVisible ? "?" : "?";
   }
 </script>
 
