@@ -130,8 +130,49 @@
       display: block;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       #hamburger-menu {
+        top: 15px;
+        left: 15px;
+      }
+
+      .menu-toggle {
+        width: 40px;
+        height: 35px;
+        padding: 7px;
+      }
+
+      .menu-toggle span {
+        height: 5px;
+      }
+
+      #menu-dropdown {
+        width: 220px;
+        padding-top: 70px;
+      }
+       @media (min-width: 601px) and (max-width: 1024px) 
+      {
+      #hamburger-menu {
+        top: 15px;
+        left: 15px;
+      }
+
+      .menu-toggle {
+        width: 40px;
+        height: 32px;
+        padding: 7px;
+      }
+
+      .menu-toggle span {
+        height: 5px;
+      }
+
+      #menu-dropdown {
+        width: 220px;
+        padding-top: 70px;
+      }
+        @media (min-width: 1025px) {
+           #hamburger-menu {
         top: 15px;
         left: 15px;
       }
