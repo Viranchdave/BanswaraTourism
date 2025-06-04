@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -9,6 +10,7 @@
       margin: 0;
       padding: 0;
       height: 100%;
+      overflow-y: auto; /* Ensures scroll on smaller screens */
     }
 
     iframe {
@@ -163,14 +165,14 @@
   <span id="lets-go">Let's Go</span>
 </div>
 
-<!-- SLIDE-IN MENU WITH CUSTOM ICONS -->
+<!-- SLIDE-IN MENU WITHOUT TRANSLATE -->
 <div id="menu-dropdown">
   <h3>Explore</h3>
   <a href="https://viranchdave.github.io/LeafletBanswaraSAFAR/">
-   <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Home"style="width: 30px; margin-right: 8px;"> Home
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Home" style="width: 30px; margin-right: 8px;"> Home
   </a>
   <a href="About Banswara.html">
-     <img src="https://img.icons8.com/ios-filled/50/ffffff/info.png" alt="About Banswara" style="width: 30px; margin-right: 8px;"> About Banswara
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/info.png" alt="About Banswara" style="width: 30px; margin-right: 8px;"> About Banswara
   </a>
   <a href="21.html" target="mainframe">
     <img src="https://img.icons8.com/ios-filled/50/ffffff/map.png" alt="Nature Attractions" style="width: 35px; margin-right: 8px;"> SAFAR Overview
@@ -180,45 +182,26 @@
   </a>
 
   <hr>
-
-  <!-- Google Translate Section -->
-  <h3>Translate</h3>
-  <div style="background: white; padding: 8px 10px; border-radius: 6px; display: inline-block;">
-  <div id="google_translate_element"></div>
-</div>
-
-
-  <hr>
-
+<h3>Explore</h3>
+  <a href="https://viranchdave.github.io/LeafletBanswaraSAFAR/">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Tropic of Cancer" style="width: 30px; margin-right: 8px;"> Tropic of Cancer
+  </a>
+  <a href="About Banswara.html">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/info.png" alt="Tourists Circuits" style="width: 30px; margin-right: 8px;"> Tourist Circuits
+</a>
+ 
   <h3>More Info</h3>
-  <a href="#about" target="mainframe">
-     How to use?
-  </a>
-  <a href="C.html" target="mainframe">
-    Contributors and their Contact
-  </a>
+  <a href="#about" target="mainframe">How to use?</a>
+  <a href="C.html" target="mainframe">Contributors and their Contact</a>
 </div>
-  <div id="menu-overlay" onclick="closeMenu()"></div>
+
+<div id="menu-overlay" onclick="closeMenu()"></div>
 
 <!-- MAIN CONTENT AREA -->
 <iframe src="https://viranchdave.github.io/LeafletBanswaraSAFAR/"></iframe>
 
-<!-- Google Translate Script -->
+<!-- JavaScript to control menu -->
 <script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      includedLanguages: 'hi',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
-  }
-
-  (function() {
-    var script = document.createElement('script');
-    script.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-    document.body.appendChild(script);
-  })();
-
   function toggleMenu() {
     const menu = document.getElementById("menu-dropdown");
     const overlay = document.getElementById("menu-overlay");
