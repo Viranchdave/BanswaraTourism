@@ -344,8 +344,8 @@ const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy OpenStreetMap contributors'
 });
 
-const esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-  attribution: 'Tiles &copy Esri — Source: Esri, Maxar, Earthstar Geographics, & the GIS User Community'
+const satellite = L.tileLayer('https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=khQuklpP2JlYYpi8b4tW', {
+  attribution: '&copy; MapTiler & OpenStreetMap contributors'
 });
 
 const cartoLight = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
