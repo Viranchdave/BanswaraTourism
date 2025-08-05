@@ -222,6 +222,52 @@
     document.getElementById("menu-overlay").classList.remove("active");
   }
 </script>
+<!-- PRIVACY POLICY MODAL -->
+<div id="privacyModal" style="position: fixed; z-index: 99999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center;">
+  <div style="background: white; padding: 30px; max-width: 600px; text-align: left; border-radius: 10px;">
+    <h2>Privacy Policy Consent</h2>
+    <p>
+      This web application may use your location to show relevant tourism information.
+      No personal data is stored or shared. By continuing, you accept our 
+      <a href="privacy_policy_embedded.html" target="_blank">Privacy Policy</a>.
+    </p>
+    <label>
+      <input type="checkbox" id="agreeCheckbox"> I have read and agree to the Privacy Policy
+    </label>
+    <br><br>
+    <button id="agreeButton" disabled>Continue</button>
+  </div>
+</div>
 
+<script>
+  const modal = document.getElementById('privacyModal');
+  const agreeCheckbox = document.getElementById('agreeCheckbox');
+  const agreeButton = document.getElementById('agreeButton');
+
+  function enableInteraction() {
+    modal.style.display = 'none';
+    document.body.style.pointerEvents = 'auto';
+    localStorage.setItem("policyAgreed", "true");
+  }
+
+  // Check if user already agreed
+  if (localStorage.getItem("policyAgreed") === "true") {
+    modal.style.display = "none";
+  } else {
+    document.body.style.pointerEvents = 'none'; // Disable all until agreed
+    modal.style.pointerEvents = 'auto'; // Allow modal only
+  }
+
+  agreeCheckbox.addEventListener('change', () => {
+    agreeButton.disabled = !agreeCheckbox.checked;
+  });
+
+  agreeButton.addEventListener('click', () => {
+    enableInteraction();
+  });
+</script>
+
+  
 </body>
 </html>
+
