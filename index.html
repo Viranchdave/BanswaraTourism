@@ -267,7 +267,6 @@
     <button id="startButton">Let’s Start</button>
   </div>
 </div>
-
 <script type="text/javascript">
   function toggleMenu() {
     const menu = document.getElementById("menu-dropdown");
@@ -303,7 +302,8 @@
 
   function enableInteraction() {
     privacyModal.style.display = 'none';
-    document.body.style.pointerEvents = 'auto';
+    // Enable iframe interaction
+    document.querySelector("iframe").style.pointerEvents = 'auto';
     localStorage.setItem("policyAgreed", "true");
   }
 
@@ -315,10 +315,11 @@
     enableInteraction();
   });
 
-  // Disable all interaction until privacy agreed
+  // Disable only iframe interaction until privacy agreed
   if (localStorage.getItem("policyAgreed") !== "true") {
-    document.body.style.pointerEvents = 'none';
-    document.getElementById('startScreen').style.pointerEvents = 'auto';
+    document.querySelector("iframe").style.pointerEvents = 'none';
+    privacyModal.style.pointerEvents = 'auto'; // modal stays clickable
+    document.getElementById('startScreen').style.pointerEvents = 'auto'; // start screen stays clickable
   }
 </script>
 
