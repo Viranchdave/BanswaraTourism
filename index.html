@@ -131,50 +131,86 @@
     }
 
     /* FULLSCREEN START SCREEN */
-    #startScreen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: white; /* White background */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000000; /* Above everything */
-    }
+#startScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, rgba(0,99,177,0.95), 
 
-    #startContent {
-      text-align: center;
-      color: blue;
-      background: white; /* White background */
-      padding: 40px;
-      border-radius: 12px;
-    }
+rgba(0,198,255,0.9)), 
+              url
 
-    #startContent h1 {
-      margin-bottom: 20px;
-      font-size: 39px;
-    }
+('https://github.com/Viranchdave/ReviveRelive-
 
-   #startButton {
-  font-size: 20px;
-  padding: 12px 28px;
-  background: #0063B1; /* Deep tourism blue */
+RevisitBanswara/raw/76f36f37e6b58763a70c2e7aaa0aa221cd8c29
+
+f7/SAFAR%20(11)%20(1).png') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: white;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  z-index: 1000000;
+  transition: opacity 1s ease;
+  animation: fadeInBg 2s ease-in-out;
+}
+
+@keyframes fadeInBg {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#startContent {
+  #startContent {
+  background: none;
+  backdrop-filter: none;
+  box-shadow: none;
+  border-radius: 0;
+  text-align: center;
+  animation: fadeInContent 2s ease-in-out;
+}
+
+@keyframes fadeInContent {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+#startContent h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+#startContent p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+#startButton {
+  font-size: 20px;
+  padding: 12px 32px;
+  background: white;
+  color: #0063B1;
+  font-weight: bold;
   border: none;
-  border-radius: 50px; /* Pill-shaped */
+  border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 #startButton:hover {
-  background: #004f8c; /* Darker on hover */
-  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
-  transform: translateY(-2px);
+  background: #0063B1;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.4);
 }
-
 
     @media (max-width: 768px) {
       #menu-dropdown {
@@ -264,8 +300,10 @@
 <!-- FULLSCREEN START OVERLAY -->
 <div id="startScreen">
   <div id="startContent">
-    <h1>SAFAR Banswara</h1>
-    <button id="startButton">Let’s Start</button>
+    <h1> </h1>
+   <p><em>Experience Rajasthan’s hidden treasure, where 
+timeless culture meets breathtaking nature.</em></p>
+    <button id="startButton">Start Exploring</button>
   </div>
 </div>
 <script type="text/javascript">
@@ -326,6 +364,7 @@
 
 </body>
 </html>
+
 
 
 
