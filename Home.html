@@ -841,7 +841,10 @@ locations.forEach(loc => {
  const popupHtml = `
   <div style="font-family: sans-serif; color: #333; max-height: 400px; overflow-y: auto; overflow-x: auto; padding: 10px;">
     <h2 style="font-size: 1.5em; color: #007bff;"><strong>${loc.name}</strong></h2>
-    <img src="${loc.image}" alt="${loc.name}" style="width:100%;max-height:150px;object-fit:cover;border-radius:8px;"><br><br>    
+   <a href="${loc.image}" target="_blank">
+  <img src="${loc.image}" alt="${loc.name}" 
+       style="width:100%;max-height:150px;object-fit:cover;border-radius:8px;cursor:pointer;">
+</a><br><br>    
     <h3>Description:</h3>
     <p>${loc.description}</p>
     <p><a href="${loc.moreInfo}" target="_blank" style="color: #007bff;">More Info</a></p>
@@ -16834,3 +16837,4 @@ filterControl.addTo(map);
 
 </body>
 </html>
+
