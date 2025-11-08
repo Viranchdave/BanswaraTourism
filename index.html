@@ -161,13 +161,13 @@
   font-weight: bold;
   color: #0063B1;
   display: inline-block;
+  letter-spacing: 2px;
 }
 
 #safar-title span {
   display: inline-block;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 0.7s ease forwards;
+  opacity: 0.6;
+  animation: pulseUp 2.5s ease-in-out infinite;
 }
 
 #safar-title span:nth-child(1) { animation-delay: 0s; }
@@ -175,20 +175,24 @@
 #safar-title span:nth-child(3) { animation-delay: 0.4s; }
 #safar-title span:nth-child(4) { animation-delay: 0.6s; }
 #safar-title span:nth-child(5) { animation-delay: 0.8s; }
-#safar-title span:nth-child(6) { animation-delay: 1.2s; } /* "Banswara" */
+#safar-title span:nth-child(6) { animation-delay: 1s; } /* "Banswara" */
 
-@keyframes fadeUp {
+@keyframes pulseUp {
   0% {
-    opacity: 0;
-    transform: translateY(30px) scale(0.95);
+    opacity: 0.4;
+    transform: translateY(5px) scale(0.95);
+    text-shadow: 0 0 4px #0077ff, 0 0 8px #00b3ff;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.05);
+    text-shadow: 0 0 10px #00b3ff, 0 0 20px #0095ff;
   }
   100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+    opacity: 0.4;
+    transform: translateY(5px) scale(0.95);
+    text-shadow: 0 0 4px #0077ff, 0 0 8px #00b3ff;
   }
-}
-#safar-title span {
-  text-shadow: 0 0 8px #00b3ff, 0 0 15px #0077ff;
 }
 
    #startButton {
@@ -298,8 +302,9 @@
 <!-- FULLSCREEN START OVERLAY -->
 <div id="startScreen">
   <div id="startContent">
-    <h1 id="safar-title">
-  <span>S</span><span>A</span><span>F</span><span>A</span><span>R</span> <span>Banswara</span>
+   <h1 id="safar-title" class="bali-style">
+  <span>S</span><span>A</span><span>F</span><span>A</span><span>R</span>
+  <span class="banswara">Banswara</span>
 </h1>
     <p><em>Experience Rajasthan’s hidden treasure, where 
 timeless culture meets breathtaking nature.</em></p>
