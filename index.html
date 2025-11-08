@@ -156,6 +156,40 @@
       margin-bottom: 20px;
       font-size: 39px;
     }
+#safar-title {
+  font-size: 48px;
+  font-weight: bold;
+  color: #0063B1;
+  display: inline-block;
+}
+
+#safar-title span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.7s ease forwards;
+}
+
+#safar-title span:nth-child(1) { animation-delay: 0s; }
+#safar-title span:nth-child(2) { animation-delay: 0.2s; }
+#safar-title span:nth-child(3) { animation-delay: 0.4s; }
+#safar-title span:nth-child(4) { animation-delay: 0.6s; }
+#safar-title span:nth-child(5) { animation-delay: 0.8s; }
+#safar-title span:nth-child(6) { animation-delay: 1.2s; } /* "Banswara" */
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+#safar-title span {
+  text-shadow: 0 0 8px #00b3ff, 0 0 15px #0077ff;
+}
 
    #startButton {
   font-size: 20px;
@@ -264,7 +298,9 @@
 <!-- FULLSCREEN START OVERLAY -->
 <div id="startScreen">
   <div id="startContent">
-    <h1>SAFAR Banswara</h1>
+    <h1 id="safar-title">
+  <span>S</span><span>A</span><span>F</span><span>A</span><span>R</span> <span>Banswara</span>
+</h1>
     <p><em>Experience Rajasthan’s hidden treasure, where 
 timeless culture meets breathtaking nature.</em></p>
     <button id="startButton">Start Exploring!</button>
