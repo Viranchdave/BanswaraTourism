@@ -348,13 +348,13 @@ const esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/W
   attribution: 'Tiles © Esri — Source: Esri, Maxar, Earthstar Geographics, & the GIS User Community'
 });
 
-const cartoLight = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-  attribution: '&copy CartoDB'
-});
+const esriLight = L.tileLayer(
+  'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', { attribution: 'Tiles &copy; Esri'
+  });
 
-const cartoDark = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-  attribution: '&copy CartoDB'
-});
+const esriDark = L.tileLayer(
+  'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {attribution: 'Tiles &copy; Esri'
+  });
 const topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
       maxZoom: 17,
       attribution: 'Map data &copy OpenStreetMap contributors, Tiles &copy OpenTopoMap (CC-BY-SA)'
@@ -373,15 +373,27 @@ const baseMapControl = L.control({ position: 'bottomright' });
 baseMapControl.onAdd = function () {
   const div = L.DomUtil.create('div', 'basemap-switcher');
 
-  div.innerHTML = `
-    <button data-layer="osm" title="OpenStreetMap"><img src="https://img.icons8.com/ios-filled/24/map.png"/></button>
-    <button data-layer="esri" title="Satellite"><img src="https://img.icons8.com/ios-filled/24/satellite.png"/></button>
-    <button data-layer="cartoLight" title="Light Mode"><img src="https://img.icons8.com/ios-filled/24/sun--v1.png"/></button>
-    <button data-layer="cartoDark" title="Dark Mode"><img src="https://img.icons8.com/ios-filled/24/moon-symbol.png"/></button>
-<button data-layer="topo" title="Topo Map">
-  <img src="https://img.icons8.com/ios-filled/24/mountain.png"/>
-</button>
-  `;
+ div.innerHTML = `
+  <button data-layer="osm" title="OpenStreetMap">
+    <img src="https://img.icons8.com/ios-filled/24/map.png"/>
+  </button>
+
+  <button data-layer="esri" title="Satellite">
+    <img src="https://img.icons8.com/ios-filled/24/satellite.png"/>
+  </button>
+
+  <button data-layer="esriLight" title="Light Mode">
+    <img src="https://img.icons8.com/ios-filled/24/sun--v1.png"/>
+  </button>
+
+  <button data-layer="esriDark" title="Dark Mode">
+    <img src="https://img.icons8.com/ios-filled/24/moon-symbol.png"/>
+  </button>
+
+  <button data-layer="topo" title="Topo Map">
+    <img src="https://img.icons8.com/ios-filled/24/mountain.png"/>
+  </button>
+`;
 
   L.DomEvent.disableClickPropagation(div);
   return div;
@@ -393,9 +405,9 @@ baseMapControl.addTo(map);
 const baseLayers = {
   osm,
   esri,
-  cartoLight,
-  cartoDark,
-topo
+  esriLight,
+  esriDark,
+  topo
 };
 
 
