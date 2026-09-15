@@ -185,28 +185,50 @@ const locations = [
   { name: "Jholla Waterfall",lat: 23.43120556,lng: 74.23629444, category: "nature"}
 ];
 
-const map = L.map('map', { zoomControl: false }).setView([23.5, 74.4], 9.4);
-L.control.zoom({ position: 'bottomright' }).addTo(map);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
+});
+
+const map = L.map('map', { zoomControl: false }).setView([23.5, 74.4], 9.4);
+
+L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+osm.addTo(map);
+
 const baseLayers = {
-"OSM": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy OpenStreetMap contributors'
-}),
-  "Carto Light": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; CartoDB', subdomains: 'abcd', maxZoom: 19
-  }),
-  "Carto Night": L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; CartoDB', subdomains: 'abcd', maxZoom: 19
-  }),
-  "Esri World Imagery": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-    attribution: '&copy; Esri', maxZoom: 19
-  }),
- "OpenTopoMap": L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+  "OSM": osm,
+
+  "Esri Light": L.tileLayer(
+    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+    {
+      attribution: '&copy; Esri',
+      maxZoom: 19
+    }
+  ),
+
+  "Esri Dark": L.tileLayer(
+    'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+    {
+      attribution: '&copy; Esri',
+      maxZoom: 19
+    }
+  ),
+
+  "Esri World Imagery": L.tileLayer(
+    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    {
+      attribution: '&copy; Esri',
+      maxZoom: 19
+    }
+  ),
+
+  "OpenTopoMap": L.tileLayer(
+    'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
+    {
       maxZoom: 19,
       attribution: '© OpenTopoMap'
-    })
+    }
+  )
 };
 baseLayers["Carto Light"].addTo(map);
 L.control.layers(baseLayers, null, { position: 'topright' }).addTo(map);
